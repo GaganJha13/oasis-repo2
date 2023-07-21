@@ -1,0 +1,97 @@
+<html>
+<head><title>Landing Page</title></head>
+<body>
+<body style="background-color: rgb(28, 37, 41);">
+
+<style>
+    a:link, a:visited {
+      background-color: #f44336;
+      border-radius: 500px;
+      color: white;
+      padding: 3px 7px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    a:hover, a:active {
+      background-color: red;
+    }
+</style>
+<hr size="2" style="margin-top: 20px;">
+<p style="color: White; font-size: 40px; margin-top: 10px;margin-left: 450px;" "><I><a style="text-decoration:none" class="a" href>Temperature Converter</a></I></p>
+<hr size="3" color="white" style="margin-top: -10px;">
+
+<p style="color: White; font-size: 40px; margin-top: 60px;margin-left: 350px;"><I>Fahrenheit :</I></p>
+<p style="color: White; font-size: 40px; margin-top: 10px;margin-left: 350px;"><I>Celsius :</I></p>
+<p style="color: White; font-size: 40px; margin-top: 10px;margin-left: 350px;"><I>Kelvin :</I></p>
+
+<style>
+    input {
+      width: 450px; 
+      height: 35px; 
+      font-size: 16px; 
+      padding: 5px; 
+      margin-top: -250px;
+      margin-left: 590px;
+    }
+    .in1{
+        margin-top: -190px;
+        margin-left: 590px;
+    }
+    .in2{
+        margin-top: -100px;
+        margin-left: 590px;
+    }
+</style>
+
+
+  <input class="input" type="number" margin-top: 10px;margin-left: 450px; id="fahrenheit" placeholder="Enter Fahrenheit temperature" oninput="convertToFahrenheit()" />
+  <br>
+  <br>
+  <input class="input in1" type="number" id="celsius" placeholder="Enter Celsius temperature" oninput="convertToCelsius()" />
+  <br>
+  <input class="input in2" type="number" id="kelvin" placeholder="Enter Kelvin temperature" oninput="convertToKelvin()" />
+
+  <script>
+    function convertToFahrenheit() {
+      const fahrenheitInput = document.getElementById("fahrenheit");
+      const celsiusInput = document.getElementById("celsius");
+      const kelvinInput = document.getElementById("kelvin");
+
+      const fahrenheit = parseFloat(fahrenheitInput.value);
+      const celsius = (fahrenheit - 32) * (5 / 9);
+      const kelvin = (fahrenheit + 459.67) * (5 / 9);
+
+      celsiusInput.value = isNaN(celsius) ? "" : celsius.toFixed(2);
+      kelvinInput.value = isNaN(kelvin) ? "" : kelvin.toFixed(2);
+    }
+
+    function convertToCelsius() {
+      const celsiusInput = document.getElementById("celsius");
+      const fahrenheitInput = document.getElementById("fahrenheit");
+      const kelvinInput = document.getElementById("kelvin");
+
+      const celsius = parseFloat(celsiusInput.value);
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      const kelvin = celsius + 273.15;
+
+      fahrenheitInput.value = isNaN(fahrenheit) ? "" : fahrenheit.toFixed(2);
+      kelvinInput.value = isNaN(kelvin) ? "" : kelvin.toFixed(2);
+    }
+
+    function convertToKelvin() {
+      const kelvinInput = document.getElementById("kelvin");
+      const fahrenheitInput = document.getElementById("fahrenheit");
+      const celsiusInput = document.getElementById("celsius");
+
+      const kelvin = parseFloat(kelvinInput.value);
+      const celsius = kelvin - 273.15;
+      const fahrenheit = (kelvin * 9 / 5) - 459.67;
+
+      fahrenheitInput.value = isNaN(fahrenheit) ? "" : fahrenheit.toFixed(2);
+      celsiusInput.value = isNaN(celsius) ? "" : celsius.toFixed(2);
+    }
+  </script>
+</body>
+</html>
